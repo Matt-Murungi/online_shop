@@ -30,6 +30,8 @@ class _HomeState extends State<Home> {
     
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: Text("Online Katale"),
         actions: [
           InkWell(
             onTap: () {
@@ -67,19 +69,21 @@ class _HomeState extends State<Home> {
                   },
                   child: Container(
                     margin: const EdgeInsets.all(10),
-                    color: Colors.grey[200],
+                    color: Colors.grey[100],
                     height: 5,
-                    child: Row(
+                    child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Text(
                           snapshot.data!.docs[index]['name'],
+                          style: const TextStyle(fontSize: 19, fontWeight: FontWeight.w500),
                         ),
                         const SizedBox(
-                          width: 30,
+                          width: 10,
                         ),
                         Text(
                           snapshot.data!.docs[index]['price'],
+                         style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400)
                         )
                       ],
                     ),

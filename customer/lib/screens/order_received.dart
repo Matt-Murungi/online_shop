@@ -12,7 +12,7 @@ static const route = 'order received';
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Text("Your order has been received"),
+          const Text("Your order has been received", style: TextStyle(fontSize: 19, fontWeight: FontWeight.w800),),
          const  SizedBox(height: 30,),
           Center(
             child: ActionButton(label: "Go back to shopping", function: ()=>Navigator.push(

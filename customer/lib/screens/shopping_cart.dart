@@ -29,25 +29,38 @@ class _ShoppingCartState extends State<ShoppingCart> {
               child: ListView.builder(
                   itemCount: cart.length,
                   itemBuilder: (BuildContext context, index) {
-                    return ListTile(
-                      key: ValueKey(cart[index]),
-                      trailing: InkWell(
-                          onTap: () {
-                            if (cart.isNotEmpty) {
-                              setState(() {
-                                cart.removeAt(index);
-                              });
-                            }
-                          },
-                          child: const Icon(Icons.delete)),
-                      title: Text(cart[index]['name']),
-                      subtitle: Text(cart[index]['price']),
+                    return Column(
+                      children: [
+                        ListTile(
+                          key: ValueKey(cart[index]),
+                          trailing: InkWell(
+                              onTap: () {
+                                if (cart.isNotEmpty) {
+                                  setState(() {
+                                    cart.removeAt(index);
+                                  });
+                                }
+                              },
+                              child: const Icon(Icons.delete)),
+                          title: Text(cart[index]['name'], 
+                          style: const TextStyle(fontWeight: FontWeight.w800,
+                          color: Colors.black45
+                          ),
+                          
+                          ),
+                          subtitle: Text(cart[index]['price']),
+                        ),
+                      const  Divider(),
+                      ],
                     );
                   })),
           const SizedBox(
             height: 40,
           ),
-          Text("Total : $total"),
+          Text("Total: $total", style: TextStyle(fontSize: 19, fontWeight: FontWeight.w800),),
+               const SizedBox(
+            height: 40,
+          ),
           ActionButton(
             label: "Checkout",
             function: () {
@@ -71,7 +84,8 @@ class ActionButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: function,
-      child: Text(label),
+      child: Text(label,
+      style: TextStyle(fontSize: 19, fontWeight: FontWeight.w500),),
     );
   }
 }
